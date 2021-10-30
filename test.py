@@ -1,4 +1,6 @@
 from gtts import gTTS
+import random
+import time
 
 
 def listen_command():
@@ -17,6 +19,9 @@ def do_this_command(message):
 
 
 def say_message(message):
+    voice = gTTS(message, lang='ru')
+    file_voice_name = f'_audio_{str(time.time())}_{str(random.randint(0, 100000))}.mp3'
+    voice.save(file_voice_name)
     print(message)
 
 
